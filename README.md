@@ -1,52 +1,95 @@
-# Petah Tikva Urban Expansion Detection Using Sentinel-2
+# Hula Valley Land Cover Classification Using Sentinel-2
 
 ## Overview
-This project presents a geospatial remote sensing analysis of urban expansion on the southeastern fringe of Petah Tikva, Israel, between 2018 and 2025.
 
-The study integrates Sentinel-2 satellite imagery, Google Earth Engine, and Python-based spatial analysis to identify vegetation-to-built land conversion, construction-stage areas, and urban growth hotspots.
+This project presents a geospatial remote sensing and machine learning analysis of land cover patterns in the **Hula Valley, Northern Israel**, using **Sentinel-2 satellite imagery**, **Google Earth Engine**, and **Python-based classification workflows**.
+
+The study focuses on mapping wetlands, agricultural land, vegetation communities, built surfaces, and exposed ground across one of Israel’s most ecologically significant landscapes.
+
+The project demonstrates an end-to-end **GEE → Python** workflow for supervised land cover classification and model comparison.
+
+---
 
 ## Objectives
-Map recent urban land conversion in Petah Tikva
-Detect vegetation loss linked to built-up expansion
-Identify spatial hotspots of urban growth
-Quantify spectral land-cover change using remote sensing indices
-Demonstrate an end-to-end GEE → Python workflow
+
+- Map current land cover classes across the Hula Valley  
+- Distinguish wetlands, flooded vegetation, cropland, and terrestrial vegetation  
+- Compare multiple machine learning classifiers  
+- Quantify classification accuracy using confusion matrices and statistical metrics  
+- Demonstrate a full remote sensing workflow from preprocessing to outputs  
+- Build a portfolio-ready geospatial machine learning case study  
+
+---
 
 ## Methodology
 
 ### Spatial Analysis
-The following multispectral bands were used:
 
-B2 (Blue)
-B3 (Green)
-B4 (Red)
-B8 (Near Infrared)
-B11 (SWIR-1)
-B12 (SWIR-2)
+The following Sentinel-2 multispectral bands were used:
+
+- B2 (Blue)  
+- B3 (Green)  
+- B4 (Red)  
+- B8 (Near Infrared)  
+- B11 (SWIR-1)  
+- B12 (SWIR-2)  
+
+---
 
 ### Spectral Indices
+
 The following remote sensing indices were derived:
 
-NDVI – vegetation intensity
-NDBI – built-up intensity
-BSI – bare soil / disturbed ground intensity
+- NDVI – vegetation intensity  
+- NDWI – surface water detection  
+- MNDWI – enhanced water / wetland separation  
+- NDBI – built-up intensity  
 
-### Change Detection Logic
-Urban conversion was identified using multi-temporal threshold analysis:
+---
 
-NDVI decline
-NDBI increase
-BSI increase
-Vegetated/open land transitioning toward urban surfaces
+### Label Source
 
-### Post-Processing
-Raster filtering to remove isolated speckle
-Binary mask generation
-Polygon extraction of hotspot zones
-Area calculation in hectares
+Training labels were derived using:
 
-## Project Structure
-```
+- Google Dynamic World v1 land cover labels
+
+Classes used:
+
+- Water  
+- Trees  
+- Grass  
+- Flooded vegetation  
+- Crops  
+- Shrub & scrub  
+- Built area  
+- Bare ground  
+
+---
+
+### Machine Learning Models
+
+The following supervised classifiers were tested:
+
+- Random Forest  
+- Support Vector Machine (RBF Kernel)  
+- Artificial Neural Network (MLP)  
+
+---
+
+### Validation Metrics
+
+The following metrics were used:
+
+- Overall Accuracy  
+- Kappa Coefficient  
+- Precision  
+- Recall  
+- F1 Score  
+- ROC AUC  
+- Confusion Matrix  
+
+---
+
 ## Project Structure
 
 ```text
@@ -83,47 +126,59 @@ hula-valley-land-cover-classification/
 ├── 📝 README.md
 └── ⚖️ LICENSE
 ```
-
 ## Key Results
-Mean ΔNDVI in hotspots: -0.46
-Mean ΔNDBI in hotspots: +0.29
-Mean ΔBSI in construction zones: +0.27
-These results indicate:
+Model	Platform	Overall Accuracy
+Random Forest	GEE	0.736
+SVM (RBF)	GEE	0.672
+Random Forest	Python	0.738
 
-clear vegetation loss
-increasing built-up cover
-exposed soil associated with active urban development
-Detected urban growth showed a notable southeasterly expansion trend along the urban-rural interface.
+### Class-Level Observations
+Water and Bare Ground were classified with highest accuracy
+Flooded vegetation was the most difficult class due to spectral overlap
+Random Forest consistently outperformed SVM
+Python Random Forest closely matched GEE performance
+
+These results indicate that ensemble tree methods are highly effective for medium-resolution wetland-agricultural landscapes.
 
 ## Outputs
+
 Project outputs include:
 
-Urban conversion hotspot maps
+Classified land cover maps
 
-Construction-stage BSI overlays
+Confusion matrices for all Python models
 
-Binary change masks
+ROC curves for ANN classifier
 
-Histogram distributions of index change
+GEE confusion matrix exports
 
-GeoJSON hotspot polygons
+Per-class precision / recall / F1 tables
 
-Poster and full written report
+Full written report
 
 ## Usage
+
 1️⃣ Navigate to the Project Folder
 
-cd petah-tikva-urban-expansion-sentinel2
+cd hula-valley-land-cover-classification
 
 2️⃣ Install Dependencies
 
-pip install -r scripts/requirements.txt
+pip install -r requirements.txt
 
 3️⃣ Run the Python Analysis
 
-python scripts/main.py
+python scripts/python/main.py
 
-4️⃣ Review Figures and Outputs
+4️⃣ Run Google Earth Engine Workflow
+
+Open:
+
+scripts/gee/gee-hula-valley-preprocessing.js
+
+inside the Google Earth Engine Code Editor.
+
+5️⃣ Review Figures and Outputs
 
 See:
 
@@ -135,24 +190,28 @@ docs/report.pdf
 
 ## Data Sources
 European Space Agency Sentinel-2 imagery
-
 Google Earth Engine
-
-Derived spectral indices and processed outputs generated by author
+Google Dynamic World v1 labels
+Derived spectral indices and outputs generated by author
 
 ## Notes
-Sentinel-2 imagery was composited using dry-season cloud-filtered scenes to improve temporal consistency.
 
-Threshold-based change detection may not capture every urban transformation type but provides a clear and interpretable analytical workflow.
+Sentinel-2 imagery was composited using cloud-filtered seasonal scenes to improve spatial consistency.
+
+Dynamic World labels provide an efficient training source, though local inaccuracies may occur in mixed wetland zones.
+
+Artificial Neural Network outputs were generated, though summary metrics were not fully retained in the original reporting workflow.
 
 This project is intended for analytical, educational, and portfolio purposes.
 
 ## License
+
 This project is licensed under the MIT License.
 
-Satellite imagery remains subject to European Space Agency / Copernicus licensing terms.
+Satellite imagery remains subject to ESA / Copernicus licensing terms.
 
 ## Author
+
 Benjamin Klass
 
 Geospatial Data Analyst (GIS, Remote Sensing, Machine Learning)
