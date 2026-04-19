@@ -1,6 +1,6 @@
 # Petah Tikva Urban Expansion Detection Using Sentinel-2
 
-##Overview
+## Overview
 This project presents a geospatial remote sensing analysis of urban expansion on the southeastern fringe of Petah Tikva, Israel, between 2018 and 2025.
 
 The study integrates Sentinel-2 satellite imagery, Google Earth Engine, and Python-based spatial analysis to identify vegetation-to-built land conversion, construction-stage areas, and urban growth hotspots.
@@ -100,10 +100,15 @@ Detected urban growth showed a notable southeasterly expansion trend along the u
 Project outputs include:
 
 Urban conversion hotspot maps
+
 Construction-stage BSI overlays
+
 Binary change masks
+
 Histogram distributions of index change
+
 GeoJSON hotspot polygons
+
 Poster and full written report
 
 ## Usage
