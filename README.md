@@ -47,40 +47,39 @@ Area calculation in hectares
 
 ## Project Structure
 ```
-petah-tikva-urban-expansion-sentinel2/
+## Project Structure
+
+```text
+hula-valley-land-cover-classification/
 │
 ├── 📁 data/
-│   ├── 🗺️ PetahTikva_S2_2018.tif
-│   ├── 🗺️ PetahTikva_S2_2021.tif
-│   ├── 🗺️ PetahTikva_S2_2023.tif
-│   ├── 🗺️ PetahTikva_S2_2025.tif
+│   ├── 📄 Hula_S2_DynamicWorld_samples.csv
 │   └── 📝 sources.md
 │
 ├── 📁 scripts/
-│   ├── 🌍 gee_petah_tikva_preprocessing.js
-│   ├── 🐍 main.py
-│   └── 📦 requirements.txt
+│   ├── 📁 gee/
+│   │   └── 🌍 gee-hula-valley-preprocessing.js
+│   │
+│   └── 📁 python/
+│       └── 🐍 main.py
 │
 ├── 📁 outputs/
-│   ├── 🗺️ construction_2018_2025.tif
-│   ├── 🗺️ conversion_2018_2025.tif
-│   └── 📍 conversion_hotspots.geojson
+│   ├── 📊 model-performance-summary.csv
+│   ├── 📊 rf-gee-class-accuracy.csv
+│   ├── 📊 rf-gee-confusion-matrix.csv
+│   └── 📊 rf-python-classification-report.csv
 │
 ├── 📁 figures/
-│   ├── 🖼️ bsi2025_construction_overlay.png
-│   ├── 🖼️ conversion_mask.png
-│   ├── 📈 hist_bsi.png
-│   ├── 📈 hist_ndbi.png
-│   ├── 📈 hist_ndvi.png
-│   ├── 🖼️ ndvi_2018.png
-│   ├── 🖼️ ndvi_2025.png
-│   └── 🖼️ ndvi2018_hotspots_overlay.png
+│   ├── 🖼️ hula_valley_classification.png
+│   ├── 🖼️ confusion-rf-python.png
+│   ├── 🖼️ confusion-svm-python.png
+│   ├── 🖼️ confusion-ann-python.png
+│   └── 📈 roc-ann-python.png
 │
 ├── 📁 docs/
-│   ├── 📕 project_poster.pdf
-│   ├── 🖼️ project_poster.jpg
 │   └── 📘 report.pdf
 │
+├── 📦 requirements.txt
 ├── 📝 README.md
 └── ⚖️ LICENSE
 ```
