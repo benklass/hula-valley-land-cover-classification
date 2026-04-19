@@ -1,0 +1,9 @@
+Reference/Predicted,0 Water,1 Trees,2 Grass,3 Flooded veg,4 Crops,5 Shrub/scrub,6 Built area,7 Bare ground
+0 Water,402,5,2,47,3,3,3,0
+1 Trees,3,285,43,50,9,25,23,0
+2 Grass,2,62,360,39,5,1,4,0
+3 Flooded veg,48,89,42,247,1,9,11,0
+4 Crops,1,49,27,3,269,68,53,6
+5 Shrub/scrub,0,21,11,0,25,380,14,4
+6 Built area,3,36,5,2,29,32,301,17
+7 Bare ground,0,0,0,0,3,4,18,438

@@ -1,0 +1,5 @@
+Model,Platform,Overall Accuracy,Kappa,Macro F1,Macro AUC,Notes
+Random Forest,GEE,0.736,0.699,,,Google Earth Engine classifier
+SVM (RBF),GEE,0.672,0.625,,,Google Earth Engine classifier
+Random Forest,Python,0.738,,0.736,0.956,Python scikit-learn implementation
+ANN (MLP),Python,,,,Metrics not included in original final summary table despite confusion matrix and ROC outputs being generated

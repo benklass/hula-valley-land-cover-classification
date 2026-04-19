@@ -1,0 +1,9 @@
+Class,Producer Accuracy,User Accuracy
+0 Water,0.865,0.867
+1 Trees,0.651,0.669
+2 Grass,0.761,0.767
+3 Flooded vegetation,0.553,0.539
+4 Crops,0.565,0.561
+5 Shrub & scrub,0.835,0.842
+6 Built area,0.708,0.706
+7 Bare ground,0.946,0.948

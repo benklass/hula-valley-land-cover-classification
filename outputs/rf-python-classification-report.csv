@@ -1,0 +1,9 @@
+Class,Precision,Recall,F1-score,Support
+0 Water,0.88,0.87,0.87,465
+1 Trees,0.53,0.67,0.59,438
+2 Grass,0.73,0.77,0.75,473
+3 Flooded vegetation,0.63,0.54,0.58,447
+4 Crops,0.78,0.56,0.65,476
+5 Shrub & scrub,0.73,0.84,0.78,455
+6 Built area,0.72,0.71,0.71,425
+7 Bare ground,0.95,0.95,0.95,463
